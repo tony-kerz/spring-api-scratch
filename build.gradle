@@ -1,0 +1,40 @@
+buildscript {
+  // https://stackoverflow.com/a/49480302/2371903
+  ext {
+    bootVersion = '2.0.1.RELEASE'
+  }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${bootVersion}")
+  }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.scratch.phoenix'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+
+dependencies {
+  compile('org.codehaus.groovy:groovy:2.4.15')
+  compile("org.springframework.boot:spring-boot-starter-web:${bootVersion}")
+  compile("org.springframework.boot:spring-boot-starter-data-jpa:${bootVersion}")
+  compile("com.h2database:h2:1.4.197")
+  testCompile("org.springframework.boot:spring-boot-starter-test:${bootVersion}")
+}
+
+test {
+  testLogging {
+    showStandardStreams = true
+  }
+}
