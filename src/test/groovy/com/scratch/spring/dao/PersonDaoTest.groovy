@@ -1,6 +1,9 @@
 package com.scratch.spring.dao
 
+import com.scratch.spring.PersonFixture
 import com.scratch.spring.model.Person
+import org.junit.After
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.slf4j.LoggerFactory
@@ -15,6 +18,14 @@ class PersonDaoTest {
 
   @Autowired
   PersonDao dao
+
+  @Autowired
+  PersonFixture fix
+
+  @Before
+  void before() {
+    fix.teardown()
+  }
 
   @Test
   void contextLoads() {

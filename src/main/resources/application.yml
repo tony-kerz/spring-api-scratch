@@ -4,3 +4,20 @@ logging:
     com.scratch: DEBUG
   #pattern:
     #console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+#
+spring:
+  jpa:
+    #generate-ddl: false
+    #hibernate:
+      #ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  datasource:
+    #url: jdbc:mysql://localhost:3306/scratch?useSSL=false&serverTimezone=UTC
+    #url: jdbc:phoenix:thin:url=http://queryserver-1.vnet:8765;serialization=PROTOBUF
+    url: jdbc:phoenix:thin:url=http://localhost:8765;serialization=PROTOBUF
+    username: scratch-user
+    password: s3cret
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.apache.phoenix.queryserver.client.Driver
